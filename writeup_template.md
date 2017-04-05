@@ -23,8 +23,8 @@ The goals / steps of this project are the following:
 [image6]: ./img/cars_hog_ch2.png
 [image7]: ./img/cars_hog_ch3.png
 [image8]: ./img/notcars_hog_ch1.png
-[image9]: ./img/notcars_hog_ch2.jpg
-[image10]: ./img/notcars_hog_ch3.jpg
+[image9]: ./img/notcars_hog_ch2.png
+[image10]: ./img/notcars_hog_ch3.png
 [image11]: ./img/boxes.png
 [image12]: ./img/cars_heat1.png
 [image13]: ./img/cars_heat2.png
