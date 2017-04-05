@@ -139,13 +139,15 @@ Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spat
 ### Video Implementation
 
 ####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
+
 Here's a [link to my video result](https://raw.githubusercontent.com/JosuVicente/CarND-Vehicle-Detection/master/project_video_out_final.mp4)
 
 
 ####2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
-I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
-Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
+I recorded the positions of positive detections in last 8 frames of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected. This is done on cell 6 and 7 of `P5_final.ipynb`
+
+For the final video I make use of functions from previous project and merge the lanes detected with the vehicles to output the final video.
 
 ### Here are six frames with initial boxes, their corresponding heatmaps and the resulting bounding boxes:
 ![alt text][image12]
@@ -161,4 +163,4 @@ Here's an example result showing the heatmap from a series of frames of video, t
 
 ####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+I think the implementation works pretty well although it´s only trained to detect cars of certain characteristics and not other road vehicles. One thing I´d like to improve if the amount of time that takes to process each frame. On my PC processing the 50 seconds project video including lane detection takes about 8 minutes so I definitely would like to improve that.
