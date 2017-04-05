@@ -32,30 +32,54 @@ The goals / steps of this project are the following:
 
 ####1. Provide a Writeup / README that includes all the rubric points and how you addressed each one.  You can submit your writeup as markdown or pdf.  [Here](https://github.com/udacity/CarND-Vehicle-Detection/blob/master/writeup_template.md) is a template writeup for this project you can use as a guide and a starting point.  
 
-You're reading it!
+You're reading it! You can access it also [here](https://github.com/JosuVicente/CarND-Vehicle-Detection/blob/master/writeup_template.md)
+
+Note that I use the following files on the project:
+* P5_final.ipynb: has the project flow from loading data, training the model to applying it to the project video and displaying it.
+* P5_functions.py: has the functions that support the main notebook on vehicle detection.
+* P4_functions.py: has the functions from previous Lane Finding project.
+* P5_visualization.ipynb: is a notebook where images from differente steps of this project flow are being displayed.
 
 ###Histogram of Oriented Gradients (HOG)
 
 ####1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
-The code for this step is contained in the first code cell of the IPython notebook (or in lines # through # of the file called `some_file.py`).  
+The code to extract the HOG features is contained in the `P5_functions.py` file in the function `get_hog_features()` which is called from the function `extract_features()` from same file.
 
-I started by reading in all the `vehicle` and `non-vehicle` images.  Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
+I started by reading in all the `vehicle` and `non-vehicle` images.  The code for this is contained on second cell of `P5_final.ipynb` Here is information from where the data is loaded from, the amount of examples of each type and some images of each of the `vehicle` and `non-vehicle` classes:
+```
+Car Images > img/vehicles/GTI_Far/*
+Car Images > img/vehicles/GTI_Left/*
+Car Images > img/vehicles/GTI_MiddleClose/*
+Car Images > img/vehicles/GTI_Right/*
+Car Images > img/vehicles/KITTI_extracted/*
+Not Car Images > img/non-vehicles/Extras/*
+Not Car Images > img/non-vehicles/GTI/*
+Total car images: 8792
+Total not car images: 8968
+```
 
 ![alt text][image1]
 
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
-Here is an example using the `YCrCb` color space and HOG parameters of `orientations=8`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
+Here is an example using the `YCrCb` color space and HOG parameters of `orientations=10`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
 
 
 ![alt text][image2]
 
 ####2. Explain how you settled on your final choice of HOG parameters.
 
-I tried various combinations of parameters and...
+I tried various combinations of parameters and I finally chose these:
+```
+orientations=10
+pixels_per_cell=(8, 8)
+cells_per_block=(2, 2)
+```
 
 ####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
+
+The code to train the classifer is located on third cell of `P5_final.ipynb` although it´s being called from fifth cell.
 
 I trained a linear SVM using...
 
