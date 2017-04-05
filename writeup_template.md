@@ -16,17 +16,22 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 [image1]: ./img/cars.png
-[image2]: ./img/notcars.jpg
-[image3]: ./img/cars_normal.jpg
-[image4]: ./img/notcars_normal.jpg
+[image2]: ./img/notcars.png
+[image3]: ./img/cars_normal.png
+[image4]: ./img/notcars_normal.png
 [image5]: ./img/cars_hog_ch1.png
 [image6]: ./img/cars_hog_ch2.png
 [image7]: ./img/cars_hog_ch3.png
 [image8]: ./img/notcars_hog_ch1.png
 [image9]: ./img/notcars_hog_ch2.jpg
 [image10]: ./img/notcars_hog_ch3.jpg
-[image11]: ./img/boxes.jpg
-[image12]: ./img/cars_heat.png
+[image11]: ./img/boxes.png
+[image12]: ./img/cars_heat1.png
+[image13]: ./img/cars_heat2.png
+[image14]: ./img/cars_heat3.png
+[image15]: ./img/cars_heat4.png
+[image16]: ./img/cars_heat5.png
+[image17]: ./img/cars_heat6.png
 [video1]: ./project_video.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
@@ -131,8 +136,12 @@ Here's an example result showing the heatmap from a series of frames of video, t
 ![alt text][image6]
 
 ### Here the resulting bounding boxes are drawn onto the last frame in the series:
-![alt text][image7]
-
+![alt text][image12]
+![alt text][image13]
+![alt text][image14]
+![alt text][image15]
+![alt text][image16]
+![alt text][image17]
 
 
 ---
