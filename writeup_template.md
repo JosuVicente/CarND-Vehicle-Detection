@@ -32,6 +32,7 @@ The goals / steps of this project are the following:
 [image15]: ./img/cars_heat4.png
 [image16]: ./img/cars_heat5.png
 [image17]: ./img/cars_heat6.png
+[image18]: ./img/window.png
 [video1]: ./project_video.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
@@ -98,16 +99,35 @@ cells_per_block=(2, 2)
 ####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
 The code to train the classifer is located on third cell of `P5_final.ipynb` although it´s being called from fifth cell.
+Parameters used are configured on fourth cell and are like follows:
+```
+color_space = 'YCrCb' # Can be RGB, HSV, LUV, HLS, YUV, YCrCb
+orient = 10  # HOG orientations
+pix_per_cell = 8 # HOG pixels per cell
+cell_per_block = 2 # HOG cells per block
+hog_channel = "ALL" # Can be 0, 1, 2, or "ALL"
+spatial_size = (32, 32) # Spatial binning dimensions
+hist_bins = 32    # Number of histogram bins
+spatial_feat = True # Spatial features on or off
+hist_feat = True # Histogram features on or off
+hog_feat = True # HOG features on or off
+x_start_stop = [None, None] # Min and max in x to search in slide_window()
+y_start_stop = [400, 656] # Min and max in y to search in slide_window()
+```
+Features are extracted using function `extract_features()` located on `P5_functions.py`. I ended using a combination of spatial, histogram and hog features.
 
-I trained a linear SVM using...
+I trained a linear SVM using the features extracted and I obtained this accuracy on the test set:
+```
+Test accuracy:  0.9893
+```
 
 ###Sliding Window Search
 
 ####1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+I decided to search windows of 64px size between 400 and 656 y position with an overlap of 0.5 like on image below:
 
-![alt text][image11]
+![alt text][image18]
 
 ####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
