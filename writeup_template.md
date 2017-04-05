@@ -15,13 +15,18 @@ The goals / steps of this project are the following:
 * Estimate a bounding box for vehicles detected.
 
 [//]: # (Image References)
-[image1]: ./examples/car_not_car.png
-[image2]: ./examples/HOG_example.jpg
-[image3]: ./examples/sliding_windows.jpg
-[image4]: ./examples/sliding_window.jpg
-[image5]: ./examples/bboxes_and_heat.png
-[image6]: ./examples/labels_map.png
-[image7]: ./examples/output_bboxes.png
+[image1]: ./img/cars.png
+[image2]: ./img/notcars.jpg
+[image3]: ./img/cars_normal.jpg
+[image4]: ./img/notcars_normal.jpg
+[image5]: ./img/cars_hog_ch1.png
+[image6]: ./img/cars_hog_ch2.png
+[image7]: ./img/cars_hog_ch3.png
+[image8]: ./img/notcars_hog_ch1.png
+[image9]: ./img/notcars_hog_ch2.jpg
+[image10]: ./img/notcars_hog_ch3.jpg
+[image11]: ./img/boxes.jpg
+[image12]: ./img/cars_heat.png
 [video1]: ./project_video.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
@@ -60,13 +65,21 @@ Total not car images: 8968
 ```
 
 ![alt text][image1]
+![alt text][image2]
 
 I then explored different color spaces and different `skimage.hog()` parameters (`orientations`, `pixels_per_cell`, and `cells_per_block`).  I grabbed random images from each of the two classes and displayed them to get a feel for what the `skimage.hog()` output looks like.
 
-Here is an example using the `YCrCb` color space and HOG parameters of `orientations=10`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)`:
+Here there are some examples using the `YCrCb` color space and HOG parameters of `orientations=10`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)` for each channel and for cars and not cars:
 
 
-![alt text][image2]
+![alt text][image3]
+![alt text][image5]
+![alt text][image6]
+![alt text][image7]
+![alt text][image4]
+![alt text][image8]
+![alt text][image9]
+![alt text][image10]
 
 ####2. Explain how you settled on your final choice of HOG parameters.
 
@@ -89,13 +102,13 @@ I trained a linear SVM using...
 
 I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
 
-![alt text][image3]
+![alt text][image11]
 
 ####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
 Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
-![alt text][image4]
+![alt text][image12]
 ---
 
 ### Video Implementation
